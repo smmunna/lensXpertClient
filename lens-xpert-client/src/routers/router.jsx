@@ -7,6 +7,8 @@ import Error from "../components/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PrivateRoutes from "../privateRoutes/PrivateRoutes";
+import Dashboard from "../layouts/Dashboard";
+import Carts from "../pages/Carts/Carts";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,16 @@ const router = createBrowserRouter([
       {
         path: "/instructors",
         element: <Instructor />
+      },
+      {
+        path:"/dashboard",
+        element:<Dashboard/>,
+        children:[
+          {
+            path:"carts",
+            element:<Carts/>
+          }
+        ]
       }
     ]
   },

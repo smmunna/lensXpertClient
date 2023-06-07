@@ -15,7 +15,6 @@ const Header = () => {
     const { darkMode, setDarkMode } = useContext(DarkModeContext);
     const navigate = useNavigate();
     const[cart] = useCart()
-    console.log(cart)
 
     const handleLogout = () => {
         logOut()
