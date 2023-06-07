@@ -30,8 +30,8 @@ const Header = () => {
         <li><ActiveLink to="/">Home</ActiveLink></li>
         <li><ActiveLink to="/instructors">Instructors</ActiveLink></li>
         <li><ActiveLink to="/classes">Classes</ActiveLink></li>
-        <li><ActiveLink to="/dashboard">Dashboard</ActiveLink></li>
-        <li><ActiveLink>
+        {user && <li><ActiveLink to="/dashboard">Dashboard</ActiveLink></li>}
+        <li><ActiveLink to="/dashboard/carts">
             <div className="relative mt-3 md:mt-0 flex justify-center items-center gap-2">
                 <img src={cartImg} width={20} alt="" />
                 <span className={`absolute left-3 bottom-1 font-bold text-lg ${darkMode ? 'darkText' : 'text-black'}`}>
