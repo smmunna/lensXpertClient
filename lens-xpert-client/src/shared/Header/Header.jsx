@@ -19,12 +19,13 @@ const Header = () => {
         <li><ActiveLink>
             <div className="relative flex justify-center items-center gap-2">
                 <img src={cartImg} width={20} alt="" />
-                <span className={`absolute left-3 bottom-1 font-bold text-lg ${darkMode ? 'darkText' : 'text-black'}`}>2+</span>
+                <span className={`absolute left-3 bottom-1 font-bold text-lg ${darkMode ? 'darkText' : 'text-black'}`}>
+                    <div className="badge">+99</div></span>
             </div>
         </ActiveLink></li>
     </>
     return (
-        <div className={`md:px-12 navbar border-b-2 ${darkMode ? 'darkMood darkText' : ''}`}>
+        <div className={`md:px-12 navbar fixed z-10 border-b-2 ${darkMode ? 'darkMood darkText' : ''}`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

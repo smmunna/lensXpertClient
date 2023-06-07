@@ -1,0 +1,73 @@
+[
+    {
+      "_id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "image": "https://images.pexels.com/photos/7092613/pexels-photo-7092613.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "numberOfStudents": 20
+    },
+    {
+      "_id": 2,
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "image": "https://images.pexels.com/photos/6326377/pexels-photo-6326377.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "numberOfStudents": 15
+    },
+    {
+      "_id": 3,
+      "name": "Michael Johnson",
+      "email": "michaeljohnson@example.com",
+      "image": "https://images.pexels.com/photos/6325975/pexels-photo-6325975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "numberOfStudents": 18
+    },
+    {
+      "_id": 4,
+      "name": "Sarah Davis",
+      "email": "sarahdavis@example.com",
+      "image": "https://images.pexels.com/photos/15893599/pexels-photo-15893599/free-photo-of-black-and-white-photo-of-a-man-taking-a-selfie-with-an-analogue-camera.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "numberOfStudents": 12
+    },
+    {
+      "_id": 5,
+      "name": "David Wilson",
+      "email": "davidwilson@example.com",
+      "image": "https://images.pexels.com/photos/10465290/pexels-photo-10465290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "numberOfStudents": 25
+    },
+    {
+      "_id": 6,
+      "name": "Emily Roberts",
+      "email": "emilyroberts@example.com",
+      "image": "https://images.pexels.com/photos/132675/pexels-photo-132675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "numberOfStudents": 10
+    },
+    {
+      "_id": 7,
+      "name": "Sophia Anderson",
+      "email": "sophiaanderson@example.com",
+      "image": "https://images.pexels.com/photos/10654170/pexels-photo-10654170.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "numberOfStudents": 22
+    },
+    {
+      "_id": 8,
+      "name": "Michael Thompson",
+      "email": "michaelthompson@example.com",
+      "image": "https://images.pexels.com/photos/9735541/pexels-photo-9735541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "numberOfStudents": 30
+    },
+    {
+      "_id": 9,
+      "name": "Olivia Brown",
+      "email": "oliviabrown@example.com",
+      "image": "https://images.pexels.com/photos/10961823/pexels-photo-10961823.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "numberOfStudents": 17
+    },
+    {
+      "_id": 10,
+      "name": "Ethan Wilson",
+      "email": "ethanwilson@example.com",
+      "image": "https://images.pexels.com/photos/9631645/pexels-photo-9631645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "numberOfStudents": 8
+    }
+  ]
+  

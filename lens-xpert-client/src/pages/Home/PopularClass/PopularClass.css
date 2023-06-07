@@ -1,0 +1,12 @@
+.popularCard{
+   background-image: url("../../../assets/images/7.png");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+.card{
+    background-image: url("../../../assets/images/10.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

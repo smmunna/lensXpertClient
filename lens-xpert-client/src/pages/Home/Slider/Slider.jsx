@@ -12,7 +12,7 @@ import { Navigation } from "swiper";
 
 const Slider = () => {
     return (
-        <div>
+        <div className='pt-10'>
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 <SwiperSlide>
                     <div className="hero h-[500px]" style={{ backgroundImage: `url(${Slider1})` }}>

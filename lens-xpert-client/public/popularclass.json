@@ -1,0 +1,92 @@
+[
+    {
+        "_id": 1,
+        "image": "https://images.pexels.com/photos/9687693/pexels-photo-9687693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Introduction to Photography",
+        "instructorName": "John Doe",
+        "availableSeats": 15,
+        "price": 25,
+        "numberOfStudents": 10
+    },
+    {
+        "_id": 2,
+        "image": "https://images.pexels.com/photos/2388569/pexels-photo-2388569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Portrait Photography",
+        "instructorName": "Jane Smith",
+        "availableSeats": 10,
+        "price": 30,
+        "numberOfStudents": 5
+    },
+    {
+        "_id": 3,
+        "image": "https://images.pexels.com/photos/2272940/pexels-photo-2272940.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Landscape Photography",
+        "instructorName": "Michael Johnson",
+        "availableSeats": 20,
+        "price": 20,
+        "numberOfStudents": 18
+    },
+    {
+        "_id": 4,
+        "image": "https://images.pexels.com/photos/3062532/pexels-photo-3062532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Street Photography",
+        "instructorName": "Sarah Davis",
+        "availableSeats": 12,
+        "price": 35,
+        "numberOfStudents": 8
+    },
+    {
+        "_id": 5,
+        "image": "https://images.pexels.com/photos/3062546/pexels-photo-3062546.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Product Photography",
+        "instructorName": "David Wilson",
+        "availableSeats": 8,
+        "price": 15,
+        "numberOfStudents": 6
+    },
+    {
+        "_id": 6,
+        "image": "https://images.pexels.com/photos/2510422/pexels-photo-2510422.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Fashion Photography",
+        "instructorName": "Emily Roberts",
+        "availableSeats": 10,
+        "price": 40,
+        "numberOfStudents": 3
+    },
+    {
+        "_id": 7,
+        "image": "https://images.pexels.com/photos/3062536/pexels-photo-3062536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Wildlife Photography",
+        "instructorName": "Sophia Anderson",
+        "availableSeats": 18,
+        "price": 30,
+        "numberOfStudents": 14
+    },
+    {
+        "_id": 8,
+        "image": "https://images.pexels.com/photos/2883160/pexels-photo-2883160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Night Photography",
+        "instructorName": "Michael Thompson",
+        "availableSeats": 12,
+        "price": 25,
+        "numberOfStudents": 9
+    },
+    {
+        "_id": 9,
+        "image": "https://images.pexels.com/photos/2510429/pexels-photo-2510429.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Travel Photography",
+        "instructorName": "Olivia Taylor",
+        "availableSeats": 15,
+        "price": 20,
+        "numberOfStudents": 11
+    },
+    {
+        "_id": 10,
+        "image": "https://images.pexels.com/photos/3379944/pexels-photo-3379944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Photo Editing and Post-Processing",
+        "instructorName": "Daniel Brown",
+        "availableSeats": 10,
+        "price": 30,
+        "numberOfStudents": 7
+    }
+]
