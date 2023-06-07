@@ -4,6 +4,7 @@ import imgCover from "../../assets/images/slider1.jpg";
 import ClassesCard from './ClassesCard';
 import { DarkModeContext } from '../../contexts/DarkMode';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const Classes = () => {
     const { darkMode } = useContext(DarkModeContext)
@@ -15,7 +16,10 @@ const Classes = () => {
     }, [])
     return (
         <div>
-            <Cover title={`All Approved Classes`} img={imgCover} />
+            <Helmet>
+                <title>All Classes | LensXpert</title>
+            </Helmet>
+            <Cover title={`All Photography Classes`} img={imgCover} />
             <div className={`px-2 md:px-12 py-8 pt-5 ${darkMode ? 'darkMood darkText' : 'lightMood'}`}>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                     {
