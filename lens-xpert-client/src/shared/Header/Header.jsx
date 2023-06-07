@@ -6,6 +6,7 @@ import LightImg from "../../assets/images/light-mode.png"
 import "./Header.css"
 import { useContext } from "react"
 import { DarkModeContext } from "../../contexts/DarkMode"
+import { Link } from "react-router-dom"
 
 const Header = () => {
 
@@ -17,12 +18,24 @@ const Header = () => {
         <li><a>Classes</a></li>
         <li><a>Dashboard</a></li>
         <li><ActiveLink>
-            <div className="relative flex justify-center items-center gap-2">
+            <div className="relative mt-3 md:mt-0 flex justify-center items-center gap-2">
                 <img src={cartImg} width={20} alt="" />
                 <span className={`absolute left-3 bottom-1 font-bold text-lg ${darkMode ? 'darkText' : 'text-black'}`}>
                     <div className="badge">+99</div></span>
             </div>
         </ActiveLink></li>
+        <li>
+            <li>
+                <Link to="/" className="lg:hidden">Login</Link>
+                <div className="block justify-center items-center mt-4 md:hidden">
+                    <div className="avatar">
+                        <div className="w-10 mr-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <img src={BrandIcon} />
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </li>
     </>
     return (
         <div className={`md:px-12 navbar fixed z-10 border-b-2 ${darkMode ? 'darkMood darkText' : ''}`}>
@@ -44,12 +57,14 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="avatar">
-                    <div className="w-10 mr-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src={BrandIcon} />
+                <div className="lg:flex justify-center items-center hidden md:block">
+                    <div className="avatar">
+                        <div className="w-10 mr-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <img src={BrandIcon} />
+                        </div>
                     </div>
+                    <a className="btn">Login</a>
                 </div>
-                <a className="btn">Login</a>
                 <div className="border-2 rounded-full p-2 bg-slate-400 mx-4" onClick={() => setDarkMode(!darkMode)}>
                     {darkMode ?
                         <>
