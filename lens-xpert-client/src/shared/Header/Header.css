@@ -1,9 +1,20 @@
 .navbar{
     background-color: aliceblue;
 }
+
+
 .darkMood{
+    
     background-color: black;
+    transition: all 0.4s ease-in-out;
 }
+/* .darkMood{
+    background-color: black;
+} */
 .darkText{
     color: white;
+}
+
+.lightMood{
+    transition: all 0.4s ease-in-out;
 }

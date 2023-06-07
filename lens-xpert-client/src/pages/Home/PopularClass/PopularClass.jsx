@@ -16,7 +16,7 @@ const PopularClass = () => {
     return (
         <div>
             <SectionHeading title={`Popular Classes`} />
-            <div  className={`px-2 md:px-12 py-8 pt-5 ${darkMode ? 'darkMood darkText' : ''}`}>
+            <div  className={`px-2 md:px-12 py-8 pt-5 ${darkMode ? 'darkMood darkText' : 'lightMood'}`}>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                     {
                         popularClass.slice(0, 6).map(popular => <PopularClassCard

@@ -14,9 +14,9 @@ const Header = () => {
 
     const navlink = <>
         <li><ActiveLink to="/">Home</ActiveLink></li>
-        <li><a>Instructors</a></li>
-        <li><a>Classes</a></li>
-        <li><a>Dashboard</a></li>
+        <li><ActiveLink>Instructors</ActiveLink></li>
+        <li><ActiveLink to="/classes">Classes</ActiveLink></li>
+        <li><ActiveLink>Dashboard</ActiveLink></li>
         <li><ActiveLink>
             <div className="relative mt-3 md:mt-0 flex justify-center items-center gap-2">
                 <img src={cartImg} width={20} alt="" />
@@ -38,13 +38,13 @@ const Header = () => {
         </li>
     </>
     return (
-        <div className={`md:px-12 navbar fixed z-10 border-b-2 ${darkMode ? 'darkMood darkText' : ''}`}>
+        <div className={`md:px-12 navbar fixed z-10 border-b-2 ${darkMode ? 'darkMood darkText' : 'lightMood'}`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className={`menu menu-sm dropdown-content mt-3 p-2 shadow ${darkMode ? 'darkMood darkText' : 'bg-slate-200'} rounded-box w-52`}>
+                    <ul tabIndex={0} className={`menu menu-sm dropdown-content mt-3 p-2 shadow ${darkMode ? 'darkMood darkText' : 'bg-slate-200'} rounded-box w-52 lightMood`}>
                         {navlink}
                     </ul>
                 </div>

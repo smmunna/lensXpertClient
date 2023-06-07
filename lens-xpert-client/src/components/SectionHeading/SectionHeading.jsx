@@ -6,7 +6,7 @@ const SectionHeading = ({ title }) => {
     return (
         <div>
             <div>
-                <h3 className={`text-3xl py-4 text-center font-semibold ${darkMode ? 'darkMood darkText' : ''}`}>{title}</h3>
+                <h3 className={`text-3xl py-4 text-center font-semibold ${darkMode ? 'darkMood darkText' : 'lightMood'}`}>{title}</h3>
                 <hr />
             </div>
         </div>
