@@ -8,11 +8,14 @@ import { useContext } from "react"
 import { DarkModeContext } from "../../contexts/DarkMode"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../provider/AuthProvider"
+import useCart from "../../hooks/useCart"
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const { darkMode, setDarkMode } = useContext(DarkModeContext);
     const navigate = useNavigate();
+    const[cart] = useCart()
+    console.log(cart)
 
     const handleLogout = () => {
         logOut()
@@ -33,7 +36,7 @@ const Header = () => {
             <div className="relative mt-3 md:mt-0 flex justify-center items-center gap-2">
                 <img src={cartImg} width={20} alt="" />
                 <span className={`absolute left-3 bottom-1 font-bold text-lg ${darkMode ? 'darkText' : 'text-black'}`}>
-                    <div className="badge">+99</div></span>
+                    <div className="badge">+{cart.length}</div></span>
             </div>
         </ActiveLink></li>
         <li>
@@ -41,18 +44,18 @@ const Header = () => {
                 {
                     user ?
                         <>
-                            <Link onClick={handleLogout} className="lg:hidden">Logout</Link>
-                        </>
-                        :
-                        <>
-                            <Link to="/login" className="lg:hidden">Login</Link>
+                            <Link onClick={handleLogout} className="lg:hidden btn-error">Logout</Link>
                             <div className="block justify-center items-center mt-4 md:hidden">
                                 <div className="avatar">
                                     <div className="w-10 mr-4 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                        <img src={BrandIcon} />
+                                        <img src={user?.photoURL} />
                                     </div>
                                 </div>
                             </div>
+                        </>
+                        :
+                        <>
+                            <Link to="/login" className="lg:hidden btn btn-accent">Login</Link>
                         </>
                 }
             </li>
@@ -87,7 +90,7 @@ const Header = () => {
                                         <img src={user?.photoURL} />
                                     </div>
                                 </div>
-                                <Link onClick={handleLogout} className="btn">Logout</Link>
+                                <Link onClick={handleLogout} className="btn btn-error">Logout</Link>
                             </div>
                         </>
                         :

@@ -11,7 +11,7 @@ const Instructor = () => {
 
     const [instructor, setInstructor] = useState([])
     useEffect(() => {
-        axios.get('popularinstructor.json')
+        axios.get(`${import.meta.env.VITE_SERVER_API}/instructors`)
             .then(res => setInstructor(res.data))
     }, [])
     return (

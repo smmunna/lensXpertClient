@@ -8,18 +8,29 @@ import { Helmet } from 'react-helmet';
 
 const Classes = () => {
     const { darkMode } = useContext(DarkModeContext)
+    const [loading, setLoading] = useState(true)
 
     const [allClass, setallClass] = useState([])
     useEffect(() => {
-        axios.get('popularclass.json')
-            .then(res => setallClass(res.data))
+        axios.get(`${import.meta.env.VITE_SERVER_API}/classes`)
+            .then(res => {
+                setallClass(res.data)
+                setLoading(false)
+            })
     }, [])
+
+
+
     return (
         <div>
             <Helmet>
                 <title>All Classes | LensXpert</title>
             </Helmet>
             <Cover title={`All Photography Classes`} img={imgCover} />
+            {
+                loading && <div className='mt-32 text-center text-red-500 text-4xl'>Loading.....</div>
+            }
+
             <div className={`px-2 md:px-12 py-8 pt-5 ${darkMode ? 'darkMood darkText' : 'lightMood'}`}>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                     {

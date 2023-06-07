@@ -1,12 +1,16 @@
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../provider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Register = () => {
     const [error, setError] = useState('')
     const { createUser, updateUser } = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
+
+    // Getting the exact path;
+    let from = location.state?.from?.pathname || "/";
 
     const handleRegisterSubmit = event => {
         event.preventDefault()
@@ -51,7 +55,7 @@ const Register = () => {
                                 updateUser(user, name, photoURL)
                                     .then(() => {
                                         // Profile updated!
-                                        navigate('/')
+                                        navigate(from, { replace: true })
                                     }).catch((error) => {
                                         // An error occurred
                                         // ...

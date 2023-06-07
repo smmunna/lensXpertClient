@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import GoogleIMG from "../../assets/images/google.png";
 import { useContext, useState } from "react";
@@ -9,6 +9,10 @@ const Login = () => {
     const { signInUser } = useContext(AuthContext)
     const navigate = useNavigate();
     const [error, setError] = useState('')
+    const location = useLocation()
+
+    // Getting the exact path;
+    let from = location.state?.from?.pathname || "/";
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -18,7 +22,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 if (user) {
-                    navigate('/')
+                    navigate(from, { replace: true })
                 }
             })
             .catch(error => {
