@@ -53,6 +53,13 @@ const Dashboard = () => {
                             <li><a>Enrolled Class</a></li>
                         </>
                     }
+                    {
+                        role == 'instructor' &&
+                        <>
+                            <li><Link to="/dashboard/addclass">Add Class</Link></li>
+                            <li><Link to="/dashboard/myclass">My Classes</Link></li>
+                        </>
+                    }
 
                 </ul>
 

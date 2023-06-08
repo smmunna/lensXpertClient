@@ -11,6 +11,8 @@ import Dashboard from "../layouts/Dashboard";
 import Carts from "../pages/Carts/Carts";
 import Users from "../pages/Users/Users";
 import Payment from "../pages/Payment/Payment";
+import AddClass from "../pages/AddClass/AddClass";
+import MyClass from "../pages/MyClass/MyClass";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
           {
             path:"payment",
             element:<PrivateRoutes><Payment/></PrivateRoutes>
+          },
+          {
+            path:"addclass",
+            element:<PrivateRoutes><AddClass/></PrivateRoutes>
+          },
+          {
+            path:"myclass",
+            element:<PrivateRoutes><MyClass/></PrivateRoutes>
           }
         ]
       }
