@@ -8,6 +8,16 @@ const ClassesCard = ({ classes, darkMode }) => {
     const { user } = useContext(AuthContext);
     const [, refetch] = useCart();
 
+    const handleDenied = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Can not buy this item, The class i already full',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+
     const { _id, name, numberOfStudents, availableSeats, price, image, instructorName, status } = classes;
     const handleCart = (id) => {
         axios.get(`${import.meta.env.VITE_SERVER_API}/classes/${id}`)
@@ -54,9 +64,21 @@ const ClassesCard = ({ classes, darkMode }) => {
                     <p>Available Seats: {availableSeats}</p>
                     <p>Instructor: {instructorName} </p>
                     <p className={` absolute right-4 top-5 ${darkMode ? 'text-amber-600 bg-black font-semibold p-4' : 'text-white font-semibold bg-black p-2'}  text-2xl`}>Price: ${price}</p>
+
                     <div className="card-actions justify-cneter">
-                        <button className="btn btn-primary w-full" onClick={() => handleCart(_id)}>ADD TO CART</button>
+                        {
+                            numberOfStudents > availableSeats ?
+                                <>
+                                    <button className=" bg-red-800 p-4 w-full text-white" onClick={handleDenied}>Class Full/ Access Denied</button>
+                                </>
+                                :
+                                <>
+                                    <button className="btn btn-primary w-full" onClick={() => handleCart(_id)}>ADD TO CART</button>
+                                </>
+                        }
                     </div>
+
+
                 </div>
             </div>
         );

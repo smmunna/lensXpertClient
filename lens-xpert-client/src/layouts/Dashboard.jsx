@@ -62,7 +62,7 @@ const Dashboard = () => {
                             <hr />
                             <li className='bg-yellow-600 mt-2 text-white'><Link to="/dashboard">Dashboard Home</Link></li>
                             <li className='bg-yellow-700 mt-2 text-white'><Link to="/dashboard/carts">My Selected Class</Link></li>
-                            <li className='bg-yellow-600 mt-2 text-white'><a>Enrolled Class</a></li>
+                            <li className='bg-yellow-600 mt-2 text-white'><Link to="/dashboard/enrolledcourse">Enrolled Class</Link></li>
                             <li className='bg-yellow-700 mt-2 text-white'><Link to="/dashboard/userpaymenthistory">Payment History</Link></li>
                         </>
                     }

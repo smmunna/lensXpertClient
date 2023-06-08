@@ -19,34 +19,18 @@ const UserPaymentHistory = () => {
         <div className='px-12 md:px-24'>
             <h3 className='py-3 text-center text-2xl font-bold'>Payment Status</h3>
             <hr />
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr className='text-orange-500 bg-gray-700'>
-                            <th></th>
-                            <th>Email</th>
-                            <th>Transaction ID</th>
-                            <th>Date & Time</th>
-                            <th>Payment Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* row 1 */}
-                        {
-                            userpayment.map((paymentItem, index) => <React.Fragment key={paymentItem._id}>
-                                <tr>
-                                    <th>{index + 1}</th>
-                                    <td>{paymentItem.email}</td>
-                                    <td>{paymentItem.transactionid}</td>
-                                    <td>{moment(paymentItem.date).format('MMMM Do YYYY, h:mm:ss a')}</td>
-                                    <td>{paymentItem.status == 'pending' ? <><span className='text-white bg-orange-600 p-2'>Pending</span></> : <><span className='text-white p-2 bg-green-600'>Completed</span></>}</td>
-                                </tr>
-                            </React.Fragment>)
-                        }
-
-                    </tbody>
-                </table>
+            <div className=" grid grid-cols-1 md:grid-cols-2 gap-3">
+                {
+                    userpayment.map((paymentItem, index) => <React.Fragment key={paymentItem._id}>
+                        <div className='p-4 border-2 mt-2'>
+                            <h3>{index + 1}.</h3>
+                            <div><span className='font-semibold'>Email:</span> {paymentItem.email}</div>
+                            <div><span className='font-semibold'>TID:</span> {paymentItem.transactionid}</div>
+                            <div><span className='font-semibold'>Date:</span> {moment(paymentItem.date).format('MMMM Do YYYY, h:mm:ss a')}</div>
+                            <div className='mt-3'>{paymentItem.status == 'pending' ? <><span className='text-white bg-orange-600 p-2'>Pending</span></> : <><span className='text-white p-2 bg-green-600'>Completed</span></>}</div>
+                        </div>
+                    </React.Fragment>)
+                }
             </div>
         </div>
     );
