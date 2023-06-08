@@ -28,7 +28,7 @@ const Classes = () => {
             </Helmet>
             <Cover title={`All Photography Classes`} img={imgCover} />
             {
-                loading && <div className='mt-32 text-center text-red-500 text-4xl'>Loading.....</div>
+                loading && <div className='mt-24 text-center text-red-500 text-4xl'><span className="loading loading-bars loading-lg"></span></div>
             }
 
             <div className={`px-2 md:px-12 py-8 pt-5 ${darkMode ? 'darkMood darkText' : 'lightMood'}`}>

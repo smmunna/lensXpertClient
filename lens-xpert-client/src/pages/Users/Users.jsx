@@ -45,7 +45,7 @@ const Users = () => {
     }
 
     return (
-        <div>
+        <div className='px-24'>
             <div className='p-8'>
                 <h3 className='text-2xl ml-2'>Total User: {users?.length}</h3>
             </div>

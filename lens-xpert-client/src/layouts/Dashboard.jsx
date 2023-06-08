@@ -49,6 +49,7 @@ const Dashboard = () => {
                             <li className='bg-yellow-700 mt-2 text-white'><Link to="/dashboard">Dashboard Home</Link></li>
                             <li className='bg-yellow-600 mt-2 text-white'><Link to="/dashboard/manageclass">Manage Classes</Link></li>
                             <li className='bg-yellow-700 mt-2 text-white'><Link to="/dashboard/users">Manage Users</Link></li>
+                            <li className='bg-yellow-600 mt-2 text-white'><Link to="/dashboard/paymentshistory">Payment History</Link></li>
                         </>
                     }
 
@@ -62,6 +63,7 @@ const Dashboard = () => {
                             <li className='bg-yellow-600 mt-2 text-white'><Link to="/dashboard">Dashboard Home</Link></li>
                             <li className='bg-yellow-700 mt-2 text-white'><Link to="/dashboard/carts">My Selected Class</Link></li>
                             <li className='bg-yellow-600 mt-2 text-white'><a>Enrolled Class</a></li>
+                            <li className='bg-yellow-700 mt-2 text-white'><Link to="/dashboard/userpaymenthistory">Payment History</Link></li>
                         </>
                     }
                     {
