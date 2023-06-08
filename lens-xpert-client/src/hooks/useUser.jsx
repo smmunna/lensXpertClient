@@ -1,17 +1,17 @@
 import { useQuery } from '@tanstack/react-query'
 import { useContext } from 'react'
 import { AuthContext } from '../provider/AuthProvider'
-const useCart = () => {
+const useUser = () => {
     const { user } = useContext(AuthContext)
 
-    const { refetch, data:cart=[] } = useQuery({
-        queryKey: ['carts', user?.email],
+    const { refetch, data:users=[] } = useQuery({
+        queryKey: ['users', user],
         queryFn: async () => {
-            const res = await fetch(`${import.meta.env.VITE_SERVER_API}/carts?email=${user?.email}`)
+            const res = await fetch(`${import.meta.env.VITE_SERVER_API}/users`)
             return res.json()
         },
     })
-    return [cart,refetch]
+    return [users,refetch]
 }
 
-export default useCart
+export default useUser

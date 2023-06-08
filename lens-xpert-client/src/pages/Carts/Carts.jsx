@@ -2,6 +2,7 @@ import React from 'react';
 import useCart from '../../hooks/useCart';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Carts = () => {
     const [carts, refetch] = useCart()
@@ -42,13 +43,13 @@ const Carts = () => {
             <div className='p-8'>
                 <h3 className='text-2xl ml-2'>Total Items: {carts.length}</h3>
                 <h3 className='text-2xl ml-2'>Total Price: ${totalPrice}</h3>
-                <button className='btn btn-accent mt-3'>Pay Now</button>
+                <Link to="/dashboard/payment"><button className='btn btn-accent mt-3'>Pay Now</button></Link>
             </div>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr className='text-white'>
+                        <tr className='text-yellow-600'>
                             <th></th>
                             <th>Class Name</th>
                             <th>Instructor</th>
@@ -63,8 +64,8 @@ const Carts = () => {
                         {
                             carts.map((cartItem, index) => <>
                                 <tr key={cartItem._id}>
-                                    <th>{index + 1}</th>
-                                    <td>{cartItem.name}</td>
+                                    <th key={cartItem._id}>{index + 1}</th>
+                                    <td key={index}>{cartItem.name}</td>
                                     <td>{cartItem.instructorName}</td>
                                     <td>${cartItem.price}</td>
                                     <td>

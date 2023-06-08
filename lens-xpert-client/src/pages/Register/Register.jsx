@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
     const [error, setError] = useState('')
@@ -55,7 +56,22 @@ const Register = () => {
                                 updateUser(user, name, photoURL)
                                     .then(() => {
                                         // Profile updated!
-                                        navigate(from, { replace: true })
+                                        const role = 'user'
+                                        const users = {
+                                            name:name,
+                                            email:email,
+                                            image:photoURL,
+                                            role:role,
+                                        }
+                                        axios.post(`${import.meta.env.VITE_SERVER_API}/users`,users)
+                                        .then(res=>{
+                                            if(res.statusText=='OK'){
+                                                navigate(from, { replace: true })
+                                            }
+                                        })
+                                        .catch(error=>{
+                                            console.log(error)
+                                        })
                                     }).catch((error) => {
                                         // An error occurred
                                         // ...
