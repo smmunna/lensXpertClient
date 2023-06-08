@@ -13,6 +13,8 @@ import Users from "../pages/Users/Users";
 import Payment from "../pages/Payment/Payment";
 import AddClass from "../pages/AddClass/AddClass";
 import MyClass from "../pages/MyClass/MyClass";
+import ManageClass from "../pages/MangeClass/ManageClass";
+import DashboardHome from "../pages/Dashboard/DashboardHome";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,10 @@ const router = createBrowserRouter([
         element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
         children: [
           {
+            path:"/dashboard",
+            element:<PrivateRoutes><DashboardHome/></PrivateRoutes>
+          },
+          {
             path: "carts",
             element: <PrivateRoutes><Carts /></PrivateRoutes>
           },
@@ -54,7 +60,11 @@ const router = createBrowserRouter([
           {
             path:"myclass",
             element:<PrivateRoutes><MyClass/></PrivateRoutes>
-          }
+          },
+          {
+            path:"manageclass",
+            element:<PrivateRoutes><ManageClass/></PrivateRoutes>
+          },
         ]
       }
     ]

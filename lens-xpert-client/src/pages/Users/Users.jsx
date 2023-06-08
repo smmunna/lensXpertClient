@@ -6,39 +6,39 @@ import Swal from 'sweetalert2';
 const Users = () => {
     const [users, refetch] = useUser();
 
-    const handleInstructor = (id)=>{
-            axios.post(`${import.meta.env.VITE_SERVER_API}/users/instructor/${id}`)
-            .then(res=>{
+    const handleInstructor = (id) => {
+        axios.post(`${import.meta.env.VITE_SERVER_API}/users/instructor/${id}`)
+            .then(res => {
                 refetch()
-                if(res.statusText=='OK'){
+                if (res.statusText == 'OK') {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
                         title: 'Instructor hasbeen made successfully',
                         showConfirmButton: false,
                         timer: 1500
-                      })
+                    })
                 }
             })
     }
     // Admin Handleing
-    const handleAdmin = (id)=>{
-            axios.post(`${import.meta.env.VITE_SERVER_API}/users/admin/${id}`)
-            .then(res=>{
+    const handleAdmin = (id) => {
+        axios.post(`${import.meta.env.VITE_SERVER_API}/users/admin/${id}`)
+            .then(res => {
                 refetch()
-                if(res.statusText=='OK'){
+                if (res.statusText == 'OK') {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
                         title: 'Admin hasbeen made successfully',
                         showConfirmButton: false,
                         timer: 1500
-                      })
+                    })
                 }
             })
     }
 
-    
+
 
     const handleDeleteItem = (id) => {
         console.log(id)
@@ -51,7 +51,7 @@ const Users = () => {
             </div>
 
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="table table-xs">
                     {/* head */}
                     <thead>
                         <tr className='text-yellow-600'>
@@ -59,7 +59,7 @@ const Users = () => {
                             <th>User Name</th>
                             <th>Email</th>
                             <th colSpan={2} className='text-center'>Role</th>
-                            <th>Action</th>
+
 
                         </tr>
                     </thead>
@@ -76,11 +76,11 @@ const Users = () => {
                                         {
                                             usersItem.role == 'admin' ?
                                                 <>
-                                                    <button disabled className='btn btn-info'> Make Admin</button>
+                                                    <button disabled className='bg-slate-300 p-2'>Already Admin</button>
                                                 </>
                                                 :
                                                 <>
-                                                    <button className='btn btn-info' onClick={()=>handleAdmin(usersItem._id)}> Make Admin</button>
+                                                    <button className='bg-orange-700 p-2 text-white' onClick={() => handleAdmin(usersItem._id)}> Make Admin</button>
                                                 </>
                                         }
                                     </td>
@@ -88,17 +88,15 @@ const Users = () => {
                                         {
                                             usersItem.role == 'instructor' ?
                                                 <>
-                                                    <button disabled className='btn btn-info'> Make Instructor</button>
+                                                    <button disabled className='bg-slate-300 p-2'>Already Instructor</button>
                                                 </>
                                                 :
                                                 <>
-                                                    <button className='btn btn-info' onClick={()=>handleInstructor(usersItem._id)}> Make Instructor</button>
+                                                    <button className='bg-orange-700 p-2 text-white' onClick={() => handleInstructor(usersItem._id)}> Make Instructor</button>
                                                 </>
                                         }
                                     </td>
-                                    <td>
-                                        <button className='btn btn-error' onClick={() => handleDeleteItem(usersItem._id)}>X</button>
-                                    </td>
+
                                 </tr>
                             </React.Fragment>)
                         }

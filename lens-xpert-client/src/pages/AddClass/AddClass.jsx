@@ -56,8 +56,9 @@ const AddClass = () => {
 
     return (
         <div>
-            <div className={`px-8`}>
-                <h3>Add a Class</h3>
+            <h3 className='text-center text-2xl font-semibold py-4'>Add a new Class</h3>
+            <hr />
+            <div className={`px-8 flex justify-center`}>
                 <form onSubmit={handleaddClass}>
                     <div className="form-control">
                         <label className="label">
