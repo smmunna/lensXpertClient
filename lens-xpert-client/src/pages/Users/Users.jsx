@@ -2,6 +2,7 @@ import React from 'react';
 import useUser from '../../hooks/useUser';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Users = () => {
     const [users, refetch] = useUser();
@@ -46,6 +47,9 @@ const Users = () => {
 
     return (
         <div className='px-24'>
+        <Helmet>
+            <title>Users | LensXpert</title>
+        </Helmet>
             <div className='p-8'>
                 <h3 className='text-2xl ml-2'>Total User: {users?.length}</h3>
             </div>

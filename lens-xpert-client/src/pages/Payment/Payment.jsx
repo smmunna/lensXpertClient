@@ -3,6 +3,7 @@ import React from 'react';
 import CheckoutForm from './CheckoutForm';
 import { loadStripe } from '@stripe/stripe-js';
 import useCart from '../../hooks/useCart';
+import { Helmet } from 'react-helmet';
 
 const Payment = () => {
     const [carts] = useCart()
@@ -17,6 +18,9 @@ const Payment = () => {
 
     return (
         <div>
+        <Helmet>
+            <title>Payment | LensXpert</title>
+        </Helmet>
             <div className='w-2/3 '>
                 <Elements stripe={stripePromise}>
                     <CheckoutForm price={finalPrice} />

@@ -3,6 +3,7 @@ import useCart from '../../hooks/useCart';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Carts = () => {
     const [carts, refetch] = useCart()
@@ -40,6 +41,9 @@ const Carts = () => {
 
     return (
         <div>
+        <Helmet>
+            <title>Cart | LensXpert</title>
+        </Helmet>
             <div className='p-8'>
                 <h3 className='text-2xl ml-2'>Total Items: {carts.length}</h3>
                 <h3 className='text-2xl ml-2'>Total Price: ${totalPrice}</h3>

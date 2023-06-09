@@ -3,6 +3,7 @@ import UsePayments from '../../hooks/usePayments';
 import moment from 'moment/moment';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const AdminPaymentHistory = () => {
     const [payments,refetch] = UsePayments();
@@ -26,6 +27,9 @@ const AdminPaymentHistory = () => {
     }
     return (
         <div className='px-12 md:px-24'>
+        <Helmet>
+            <title>Payment History | LensXpert</title>
+        </Helmet>
             <h3 className='py-3 text-center text-2xl font-bold'>Payment Status</h3>
             <hr />
             <div className="overflow-x-auto">

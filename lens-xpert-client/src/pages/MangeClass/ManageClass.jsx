@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import UseAllClass from '../../hooks/useAllClass';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const ManageClass = () => {
     const [allclass, refetch] = UseAllClass();
@@ -28,6 +29,9 @@ const ManageClass = () => {
 
     return (
         <div className='md:px-16'>
+        <Helmet>
+            <title>Manage Class | LensXpert</title>
+        </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

@@ -4,6 +4,7 @@ import { DarkModeContext } from '../../contexts/DarkMode';
 import './AddClass.css'
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const AddClass = () => {
     const { user } = useContext(AuthContext)
@@ -57,6 +58,9 @@ const AddClass = () => {
 
     return (
         <div>
+        <Helmet>
+            <title>Add Class | LensXpert</title>
+        </Helmet>
             <h3 className='text-center text-2xl font-semibold py-4'>Add a new Class</h3>
             <hr />
             <div className={`px-8 flex justify-center`}>

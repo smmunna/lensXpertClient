@@ -17,6 +17,9 @@ const UserPaymentHistory = () => {
     }, [])
     return (
         <div className='px-12 md:px-24'>
+        <Helmet>
+            <title>User Payments | LensXpert</title>
+        </Helmet>
             <h3 className='py-3 text-center text-2xl font-bold'>Payment Status</h3>
             <hr />
             <div className=" grid grid-cols-1 md:grid-cols-2 gap-3">

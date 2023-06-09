@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const EnrolledCourse = () => {
     const [userpayment, setUserpayment] = useState([])
@@ -17,6 +18,9 @@ const EnrolledCourse = () => {
     }, [])
     return (
         <div className='px-12 md:px-24'>
+        <Helmet>
+            <title>Enrolled Class | LensXpert</title>
+        </Helmet>
             <h3 className='text-center py-3 text-2xl font-semibold'>Enrolled Classes</h3>
             <hr />
             <div className='flex justify-center py-4'>
