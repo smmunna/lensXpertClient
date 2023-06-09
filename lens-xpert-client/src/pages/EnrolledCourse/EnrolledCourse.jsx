@@ -4,11 +4,11 @@ import axios from 'axios';
 
 const EnrolledCourse = () => {
     const [userpayment, setUserpayment] = useState([])
+    const[itemId,setItemid]=useState([])
     const { user } = useContext(AuthContext)
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_SERVER_API}/userpaymenthistory?email=${user?.email}`)
             .then(res => {
-                // console.log(res)
                 setUserpayment(res.data)
             })
             .catch(error => {
@@ -31,7 +31,7 @@ const EnrolledCourse = () => {
                                         {
                                             paymentItem.itemname.map((myitem, index) => <React.Fragment>
 
-                                                <li><>{index+1}. {myitem}</></li>
+                                                <li><>🤴 {myitem}</></li>
                                             </React.Fragment>)
                                         }
                                     </React.Fragment>)

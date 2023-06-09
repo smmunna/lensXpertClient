@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import GoogleIMG from "../../assets/images/google.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const Login = () => {
-    const { signInUser } = useContext(AuthContext)
+    const { signInUser, googleSignIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const [error, setError] = useState('')
     const location = useLocation()
@@ -38,6 +40,41 @@ const Login = () => {
             })
     };
 
+    const handleLoginGoogle = () => {
+        googleSignIn()
+            .then(result => {
+                const user = result.user;
+                const role = 'user';
+                const users = {
+                    name: user.displayName,
+                    email: user.email,
+                    image: user.photoURL,
+                    role
+                }
+                if (user) {
+                    axios.post(`${import.meta.env.VITE_SERVER_API}/users`, users)
+                        .then(res => {
+                            if (res.statusText == 'OK') {
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'success',
+                                    title: 'Successfully Logged in',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                                navigate(from, { replace: true })
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     return (
         <div>
             <Helmet>
@@ -68,7 +105,7 @@ const Login = () => {
                                 </div>
                                 <div className="p-2">
                                     <h3 className="mb-5">Don't have any account? <Link to="/register" className="text-blue-500">Register Now</Link></h3>
-                                    <div className=" flex justify-center items-center gap-3 border-2 p-2 text-center mt-2">
+                                    <div className=" flex justify-center items-center gap-3 border-2 p-2 text-center mt-2 cursor-pointer" onClick={handleLoginGoogle}>
                                         <img src={GoogleIMG} width={25} alt="" />   Signin with Google
                                     </div>
                                 </div>

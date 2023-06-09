@@ -49,7 +49,7 @@ const AdminPaymentHistory = () => {
                                     <td>{paymentItem.email}</td>
                                     <td>{paymentItem.transactionid}</td>
                                     <td>{moment(paymentItem.date).format('MMMM Do YYYY, h:mm:ss a')}</td>
-                                    <td>{paymentItem.status=='pending'?<><span onClick={()=>handlePaymentPending(paymentItem._id)} className='text-white bg-orange-600 p-2'>Pending</span></>:<><span className='text-white p-2 bg-green-600'>Completed</span></>}</td>
+                                    <td>{paymentItem.status=='pending'?<><span onClick={()=>handlePaymentPending(paymentItem._id)} className='text-white bg-orange-600 p-2 cursor-pointer'>Pending</span></>:<><span className='text-white p-2 bg-green-600'>Completed</span></>}</td>
                                 </tr>
                             </React.Fragment>)
                         }

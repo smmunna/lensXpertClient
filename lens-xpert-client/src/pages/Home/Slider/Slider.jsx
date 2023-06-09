@@ -19,7 +19,7 @@ const Slider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="">
-                                <h1 className="mb-5 text-5xl font-bold">An Introduction to Photography</h1>
+                                <h1 className="mb-5 text-5xl font-bold">AN INTRODUCTION TO PHOTOGRAPHY</h1>
                                 <p className="mb-5">The fastest way to master your camera and boost your creativity</p>
                                 <button className="btn btn-acent">Start Learning</button>
                             </div>
@@ -31,8 +31,8 @@ const Slider = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="">
-                                <h1 className="mb-5 text-5xl font-bold">An Introduction to Photography</h1>
-                                <p className="mb-5">The fastest way to master your camera and boost your creativity</p>
+                                <h1 className="mb-5 text-5xl font-bold">PHOTOGRAPHY & ONLINE CLASSES</h1>
+                                <p className="mb-5">Become the photographer you've always wanted. Today's greats will show you how.</p>
                                 <button className="btn btn-acent">Start Learning</button>
                             </div>
                         </div>

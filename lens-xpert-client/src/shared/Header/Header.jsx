@@ -14,7 +14,7 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const { darkMode, setDarkMode } = useContext(DarkModeContext);
     const navigate = useNavigate();
-    const[cart] = useCart()
+    const [cart] = useCart()
 
     const handleLogout = () => {
         logOut()
@@ -97,7 +97,7 @@ const Header = () => {
                             <Link to="/login" className="btn">Login</Link>
                         </>
                 }
-                <div className="border-2 rounded-full p-2 bg-slate-400 mx-4" onClick={() => setDarkMode(!darkMode)}>
+                <div className="border-2 rounded-full p-2 bg-slate-400 mx-4 cursor-pointer" onClick={() => setDarkMode(!darkMode)}>
                     {darkMode ?
                         <>
                             <img src={DarkImg} width={30} alt="" />

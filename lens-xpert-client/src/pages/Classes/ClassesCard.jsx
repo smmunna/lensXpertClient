@@ -12,7 +12,7 @@ const ClassesCard = ({ classes, darkMode }) => {
         Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'Can not buy this item, The class i already full',
+            title: 'Can not buy this course, The class is already full',
             showConfirmButton: false,
             timer: 1500
         })
@@ -67,7 +67,7 @@ const ClassesCard = ({ classes, darkMode }) => {
 
                     <div className="card-actions justify-cneter">
                         {
-                            numberOfStudents > availableSeats ?
+                            numberOfStudents >= availableSeats ?
                                 <>
                                     <button className=" bg-red-800 p-4 w-full text-white" onClick={handleDenied}>Class Full/ Access Denied</button>
                                 </>

@@ -15,7 +15,8 @@ const AddClass = () => {
         const name = form.name.value;
         const instructorName = form.instructorName.value;
         const instructorEmail = form.instructorEmail.value;
-        const availableSeats = form.availableSeats.value;
+        const availableSeats = parseInt(form.availableSeats.value);
+        const numberOfStudents = parseInt(form.numberOfStudents.value);
         const price = form.price.value;
         const status = 'pending';
 
@@ -33,7 +34,7 @@ const AddClass = () => {
             .then(data => {
                 if (data.asset_id) {
                     const image = data.url;
-                    const classes = { name, image, instructorName, instructorEmail, availableSeats, price, status }
+                    const classes = { name, image, instructorName, instructorEmail, availableSeats, price, numberOfStudents, status }
                     axios.post(`${import.meta.env.VITE_SERVER_API}/classes/addclass`, classes)
                         .then(res => {
                             if (res.statusText == 'OK') {
@@ -60,45 +61,64 @@ const AddClass = () => {
             <hr />
             <div className={`px-8 flex justify-center`}>
                 <form onSubmit={handleaddClass}>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Name</span>
-                        </label>
-                        <input type="text" name="name" placeholder="Enter your name" className="input input-bordered w-80" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Photo</span>
-                        </label>
-                        <div className="form-control w-full max-w-xs">
-                            <input type="file" name="image" accept="image/*" className="file-input file-input-bordered w-full max-w-xs" required={true} />
+
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+                        <div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" name="name" placeholder="Enter your name" className="input input-bordered w-80" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo</span>
+                                </label>
+                                <div className="form-control w-full max-w-xs">
+                                    <input type="file" name="image" accept="image/*" className="file-input file-input-bordered w-full max-w-xs" required={true} />
+                                </div>
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Instructor Name</span>
+                                </label>
+                                <input type="text" name="instructorName" defaultValue={user?.displayName} readOnly className="input input-bordered w-80" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Instructor Email</span>
+                                </label>
+                                <input type="text" name="instructorEmail" defaultValue={user.email} readOnly className="input input-bordered w-80" required />
+                            </div>
+                        </div>
+                        {/* Right Part */}
+                        <div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Available Seats</span>
+                                </label>
+                                <input type="text" name="availableSeats" placeholder="Seats" className="input input-bordered w-80" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Price</span>
+                                </label>
+                                <input type="text" name="price" placeholder="Price" className="input input-bordered w-80" required />
+                            </div>
+                            <div className="form-control hidden">
+                                <label className="label">
+                                    <span className="label-text">Number of Students</span>
+                                </label>
+                                <input type="text" name="numberOfStudents" defaultValue={0} placeholder="Price" className="input input-bordered w-80" required />
+                            </div>
                         </div>
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Instructor Name</span>
-                        </label>
-                        <input type="text" name="instructorName" defaultValue={user?.displayName} readOnly className="input input-bordered w-80" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Instructor Email</span>
-                        </label>
-                        <input type="text" name="instructorEmail" defaultValue={user.email} readOnly className="input input-bordered w-80" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Available Seats</span>
-                        </label>
-                        <input type="text" name="availableSeats" placeholder="Seats" className="input input-bordered w-80" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Price</span>
-                        </label>
-                        <input type="text" name="price" placeholder="Price" className="input input-bordered w-80" required />
-                    </div>
-                    <button className='btn btn-primary mt-4'>Add Class</button>
+
+                        <div className='flex justify-center'>
+                        <button className='btn btn-primary mt-4 w-72'>Add Class</button>
+                        </div>
+
+                   
                 </form>
             </div>
         </div>
