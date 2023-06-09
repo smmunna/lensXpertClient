@@ -58,20 +58,20 @@ const Register = () => {
                                         // Profile updated!
                                         const role = 'user'
                                         const users = {
-                                            name:name,
-                                            email:email,
-                                            image:photoURL,
-                                            role:role,
+                                            name: name,
+                                            email: email,
+                                            image: photoURL,
+                                            role: role,
                                         }
-                                        axios.post(`${import.meta.env.VITE_SERVER_API}/users`,users)
-                                        .then(res=>{
-                                            if(res.statusText=='OK'){
-                                                navigate(from, { replace: true })
-                                            }
-                                        })
-                                        .catch(error=>{
-                                            console.log(error)
-                                        })
+                                        axios.post(`${import.meta.env.VITE_SERVER_API}/users`, users)
+                                            .then(res => {
+                                                if (res.statusText == 'OK') {
+                                                    navigate(from, { replace: true })
+                                                }
+                                            })
+                                            .catch(error => {
+                                                console.log(error)
+                                            })
                                     }).catch((error) => {
                                         // An error occurred
                                         // ...
@@ -94,16 +94,16 @@ const Register = () => {
 
     }
     return (
-        <div>
+        <div className="loginpage">
             <Helmet>
                 <title>Register | LensXpert</title>
             </Helmet>
             <form onSubmit={handleRegisterSubmit}>
-                <h3 className="text-center font-semibold text-3xl py-5">Welcome to LensXpert, Create your Account..</h3>
+                <h3 className="text-center font-semibold text-3xl py-2 text-slate-300">Welcome to LensXpert, Create your Account..</h3>
                 <hr />
                 <div className="hero">
                     <div className="hero-content flex-col lg:flex-row-reverse">
-                        <div className=" max-w-sm shadow-2xl bg-base-100">
+                        <div className=" max-w-sm shadow-2xl bg-slate-900">
                             <div className="card-body">
                                 <p className="font-semibold text-red-600">{error && <>{error}</>}</p>
                                 <div className="form-control">
@@ -116,7 +116,7 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" name="email" placeholder="email" className="input input-bordered w-80" required={true} />
+                                    <input type="text" name="email" placeholder="Enter your Email" className="input input-bordered w-80" required={true} />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -130,13 +130,13 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" name="password" placeholder="password" className="input input-bordered" required={true} />
+                                    <input type="text" name="password" placeholder="Enter your password" className="input input-bordered" required={true} />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Confirm Password</span>
                                     </label>
-                                    <input type="text" name="confirmpassword" placeholder="password" className="input input-bordered" required={true} />
+                                    <input type="text" name="confirmpassword" placeholder="Confirm Password" className="input input-bordered" required={true} />
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Register</button>

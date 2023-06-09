@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import './Login.css'
 
 const Login = () => {
     const { signInUser, googleSignIn } = useContext(AuthContext)
@@ -76,36 +77,36 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="loginpage">
             <Helmet>
                 <title>Login | LensXpert</title>
             </Helmet>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <h3 className="text-center font-semibold text-3xl py-5">Welcome to LensXpert, Please Login..</h3>
+                <h3 className="text-center font-semibold text-3xl py-6 text-slate-300">Welcome to LensXpert, Please Login..</h3>
                 <hr />
                 <div className="hero">
                     <div className="hero-content flex-col lg:flex-row-reverse">
-                        <div className=" max-w-sm shadow-2xl bg-base-100">
+                        <div className=" max-w-sm shadow-2xl bg-slate-900">
                             <div className="card-body">
                                 <p className="font-semibold text-red-600">{error && <>{error}</>}</p>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" placeholder="email" {...register("email")} className="input input-bordered w-80" />
+                                    <input type="text" placeholder="Enter your email" {...register("email")} className="input input-bordered w-80" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" placeholder="password" {...register("password")} className="input input-bordered" />
+                                    <input type="text" placeholder="Enter your password" {...register("password")} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
                                 <div className="p-2">
-                                    <h3 className="mb-5">Don't have any account? <Link to="/register" className="text-blue-500">Register Now</Link></h3>
-                                    <div className=" flex justify-center items-center gap-3 border-2 p-2 text-center mt-2 cursor-pointer" onClick={handleLoginGoogle}>
+                                    <h3 className="mb-5 text-white">Don't have any account? <Link to="/register" className="text-blue-500">Register Now</Link></h3>
+                                    <div className=" flex justify-center items-center gap-3 border-2 p-2 text-center mt-2 cursor-pointer text-white" onClick={handleLoginGoogle}>
                                         <img src={GoogleIMG} width={25} alt="" />   Signin with Google
                                     </div>
                                 </div>
