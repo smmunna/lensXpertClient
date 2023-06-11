@@ -8,12 +8,21 @@ import { Helmet } from 'react-helmet';
 
 const Instructor = () => {
     const { darkMode } = useContext(DarkModeContext)
+    const[loading,setLoading]=useState(true)
 
     const [instructor, setInstructor] = useState([])
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_SERVER_API}/instructors`)
-            .then(res => setInstructor(res.data))
+            .then(res => {
+                setInstructor(res.data)
+                setLoading(false)
+            })
     }, [])
+
+    if(loading){
+        return <div className='mt-24 text-4xl'>Loading.......</div>
+    }
+
     return (
         <div>
             <Helmet>

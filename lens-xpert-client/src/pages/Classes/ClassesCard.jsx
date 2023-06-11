@@ -33,6 +33,7 @@ const ClassesCard = ({ classes, darkMode }) => {
                     instructorName: instructorName,
                     price: price,
                     name: name,
+                    itemId:_id
                 };
 
                 axios.post(`${import.meta.env.VITE_SERVER_API}/classes`, cartItem)

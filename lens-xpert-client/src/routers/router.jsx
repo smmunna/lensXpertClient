@@ -41,8 +41,8 @@ const router = createBrowserRouter([
         element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
         children: [
           {
-            path:"/dashboard",
-            element:<PrivateRoutes><DashboardHome/></PrivateRoutes>
+            path: "/dashboard",
+            element: <PrivateRoutes><DashboardHome /></PrivateRoutes>
           },
           {
             path: "carts",
@@ -53,32 +53,32 @@ const router = createBrowserRouter([
             element: <PrivateRoutes><Users /></PrivateRoutes>
           },
           {
-            path:"payment",
-            element:<PrivateRoutes><Payment/></PrivateRoutes>
+            path: "payment",
+            element: <PrivateRoutes><Payment /></PrivateRoutes>
           },
           {
-            path:"addclass",
-            element:<PrivateRoutes><AddClass/></PrivateRoutes>
+            path: "addclass",
+            element: <PrivateRoutes><AddClass /></PrivateRoutes>
           },
           {
-            path:"myclass",
-            element:<PrivateRoutes><MyClass/></PrivateRoutes>
+            path: "myclass",
+            element: <PrivateRoutes><MyClass /></PrivateRoutes>
           },
           {
-            path:"manageclass",
-            element:<PrivateRoutes><ManageClass/></PrivateRoutes>
+            path: "manageclass",
+            element: <PrivateRoutes><ManageClass /></PrivateRoutes>
           },
           {
-            path:"paymentshistory",
-            element:<PrivateRoutes><AdminPaymentHistory/></PrivateRoutes>
+            path: "paymentshistory",
+            element: <PrivateRoutes><AdminPaymentHistory /></PrivateRoutes>
           },
           {
-            path:"userpaymenthistory",
-            element:<PrivateRoutes><UserPaymentHistory/></PrivateRoutes>
+            path: "userpaymenthistory",
+            element: <PrivateRoutes><UserPaymentHistory /></PrivateRoutes>
           },
           {
-            path:"enrolledcourse",
-            element:<PrivateRoutes><EnrolledCourse/></PrivateRoutes>
+            path: "enrolledcourse",
+            element: <PrivateRoutes><EnrolledCourse /></PrivateRoutes>
           }
         ]
       }

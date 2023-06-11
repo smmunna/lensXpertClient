@@ -18,9 +18,9 @@ const Payment = () => {
 
     return (
         <div>
-        <Helmet>
-            <title>Payment | LensXpert</title>
-        </Helmet>
+            <Helmet>
+                <title>Payment | LensXpert</title>
+            </Helmet>
             <div className='w-2/3 '>
                 <Elements stripe={stripePromise}>
                     <CheckoutForm price={finalPrice} />

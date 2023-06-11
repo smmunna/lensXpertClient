@@ -41,9 +41,9 @@ const Carts = () => {
 
     return (
         <div>
-        <Helmet>
-            <title>Cart | LensXpert</title>
-        </Helmet>
+            <Helmet>
+                <title>Cart | LensXpert</title>
+            </Helmet>
             <div className='p-8'>
                 <h3 className='text-2xl ml-2'>Total Items: {carts.length}</h3>
                 <h3 className='text-2xl ml-2'>Total Price: ${totalPrice}</h3>
@@ -66,17 +66,17 @@ const Carts = () => {
                         {/* row 1 */}
 
                         {
-                            carts.map((cartItem, index) => <>
-                                <tr key={cartItem._id}>
-                                    <th key={cartItem._id}>{index + 1}</th>
-                                    <td key={index}>{cartItem.name}</td>
+                            carts.map((cartItem, index) => <React.Fragment key={cartItem._id}>
+                                <tr>
+                                    <th>{index + 1}</th>
+                                    <td>{cartItem.name}</td>
                                     <td>{cartItem.instructorName}</td>
                                     <td>${cartItem.price}</td>
                                     <td>
                                         <button className='btn btn-error' onClick={() => handleDeleteItem(cartItem._id)}>X</button>
                                     </td>
                                 </tr>
-                            </>)
+                            </React.Fragment>)
                         }
 
                     </tbody>
