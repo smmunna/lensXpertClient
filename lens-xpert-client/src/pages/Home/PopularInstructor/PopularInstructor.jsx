@@ -16,7 +16,7 @@ const PopularInstructor = () => {
                 setInstructor(res.data)
                 setLoading(false)
             })
-    }, [])
+    }, [loading])
 
 
 

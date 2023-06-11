@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 
 const Instructor = () => {
     const { darkMode } = useContext(DarkModeContext)
-    const[loading,setLoading]=useState(true)
+    const [loading, setLoading] = useState(true)
 
     const [instructor, setInstructor] = useState([])
     useEffect(() => {
@@ -17,9 +17,9 @@ const Instructor = () => {
                 setInstructor(res.data)
                 setLoading(false)
             })
-    }, [])
+    }, [loading])
 
-    if(loading){
+    if (loading) {
         return <div className='mt-24 text-4xl'>Loading.......</div>
     }
 
