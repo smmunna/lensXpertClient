@@ -104,7 +104,7 @@ const CheckoutForm = ({ price }) => {
     };
 
     return (
-        <div>
+        <div className='px-4 md:px-24'>
             <h3 className='text-red-600 font-bold p-2'>{carderror && carderror}</h3>
             <h4>{price}</h4>
             <form onSubmit={handleSubmit}>

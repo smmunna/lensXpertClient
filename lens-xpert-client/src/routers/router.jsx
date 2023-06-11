@@ -30,7 +30,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/classes",
-        element: <PrivateRoutes><Classes /></PrivateRoutes>
+        element: <PrivateRoutes><Classes /></PrivateRoutes>,
+        loader:()=>fetch(`${import.meta.env.VITE_SERVER_API}/totalProducts`)
       },
       {
         path: "/instructors",
