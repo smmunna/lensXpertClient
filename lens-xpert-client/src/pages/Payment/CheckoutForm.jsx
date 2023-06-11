@@ -3,6 +3,8 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import useCart from '../../hooks/useCart';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 // import './CheckoutForm.css';
 
 const CheckoutForm = ({ price }) => {
@@ -14,7 +16,9 @@ const CheckoutForm = ({ price }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
     // console.log(user.email)
+    // console.log(cart.map(item=>item._id))
 
     useEffect(() => {
         axios.post(`${import.meta.env.VITE_SERVER_API}/create-payment-intent`, { price })
@@ -48,7 +52,7 @@ const CheckoutForm = ({ price }) => {
             setCarderror(error.message)
         } else {
             setCarderror('')
-            console.log('[PaymentMethod]', paymentMethod);
+            // console.log('[PaymentMethod]', paymentMethod);
         }
 
         setProcessing(true)
@@ -74,13 +78,14 @@ const CheckoutForm = ({ price }) => {
 
         setProcessing(false)
         if (paymentIntent.status == 'succeeded') {
+
             setSuccessful(paymentIntent.id)
             const transactionid = paymentIntent.id;
             const paymentInfo = {
                 name: user?.displayName,
                 email: user?.email,
                 transactionid: transactionid,
-                itemid: cart.map(item => item._id),
+                itemid: cart.map(item => item.itemId),
                 itemname: cart.map(item => item.name),
                 quantity: cart.length,
                 price,
@@ -97,6 +102,22 @@ const CheckoutForm = ({ price }) => {
                 })
                 .catch(error => {
                     console.log(error)
+                })
+
+            // and delete all the items from the carts;
+            axios.delete(`${import.meta.env.VITE_SERVER_API}/deleteallcartsitems?email=${user?.email}`)
+                .then(res => {
+                    // Deleted successfully
+                    if (res.data) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Payment Successfull',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        navigate('/dashboard')
+                    }
                 })
         }
 

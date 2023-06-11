@@ -33,7 +33,7 @@ const EnrolledCourse = () => {
                                 {
                                     userpayment.map((paymentItem, index) => <React.Fragment key={paymentItem._id}>
                                         {
-                                            paymentItem.itemname.map((myitem, index) => <React.Fragment>
+                                            paymentItem.itemname.map((myitem, index) => <React.Fragment key={index+1}>
 
                                                 <li><>🤴 {myitem}</></li>
                                             </React.Fragment>)

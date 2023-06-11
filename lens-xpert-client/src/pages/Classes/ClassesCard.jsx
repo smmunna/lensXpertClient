@@ -33,7 +33,7 @@ const ClassesCard = ({ classes, darkMode }) => {
                     instructorName: instructorName,
                     price: price,
                     name: name,
-                    itemId:_id
+                    itemId: _id
                 };
 
                 axios.post(`${import.meta.env.VITE_SERVER_API}/classes`, cartItem)
@@ -68,7 +68,7 @@ const ClassesCard = ({ classes, darkMode }) => {
 
                     <div className="card-actions justify-cneter">
                         {
-                            numberOfStudents >= availableSeats ?
+                            availableSeats == 0 ?
                                 <>
                                     <button className=" bg-red-800 p-4 w-full text-white" onClick={handleDenied}>Class Full/ Access Denied</button>
                                 </>

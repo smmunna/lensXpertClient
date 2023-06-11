@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import axios from 'axios';
 import moment from 'moment';
+import { Helmet } from 'react-helmet';
 
 const UserPaymentHistory = () => {
     const [userpayment, setUserpayment] = useState([])
