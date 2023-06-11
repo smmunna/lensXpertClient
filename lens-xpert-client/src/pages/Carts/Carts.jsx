@@ -26,6 +26,7 @@ const Carts = () => {
 
                 axios.delete(`${import.meta.env.VITE_SERVER_API}/carts/${id}`)
                     .then(res => {
+                        refetch()
                         if (res.statusText == 'OK') {
                             refetch()
                             Swal.fire(

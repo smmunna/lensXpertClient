@@ -38,15 +38,17 @@ const ClassesCard = ({ classes, darkMode }) => {
 
                 axios.post(`${import.meta.env.VITE_SERVER_API}/classes`, cartItem)
                     .then(res => {
+                        refetch()
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Item hasbeen added to the cart',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
                         if (res.statusText == 'OK') {
                             refetch()
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'success',
-                                title: 'Item hasbeen added to the cart',
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
+                            // Item added succesfully
                         }
                     })
                     .catch(error => console.log(error))
