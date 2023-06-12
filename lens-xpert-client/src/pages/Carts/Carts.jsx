@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useCart from '../../hooks/useCart';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Carts = () => {
     const [carts, refetch] = useCart()
+    const{loading}=useContext(AuthContext)
+    
+    if(loading){
+        return <div>Loading......</div>
+    }
 
-    const totalPrice = carts.reduce((total, cartItem) => {
+    const totalPrice = carts?.reduce((total, cartItem) => {
         return total + cartItem.price;
     }, 0);
 
@@ -46,7 +52,7 @@ const Carts = () => {
                 <title>Cart | LensXpert</title>
             </Helmet>
             <div className='p-8'>
-                <h3 className='text-2xl ml-2'>Total Items: {carts.length}</h3>
+                <h3 className='text-2xl ml-2'>Total Items: {carts?.length}</h3>
                 <h3 className='text-2xl ml-2'>Total Price: ${totalPrice}</h3>
                 <Link to="/dashboard/payment"><button className='btn btn-accent mt-3'>Pay Now</button></Link>
             </div>
