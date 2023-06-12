@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import GoogleIMG from "../../assets/images/google.png";
+import Eye from "../../assets/images/eye.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
@@ -12,6 +13,7 @@ const Login = () => {
     const { signInUser, googleSignIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const [error, setError] = useState('')
+    const [showpass, setshowpass] = useState(false);
     const location = useLocation()
 
     // Getting the exact path;
@@ -95,11 +97,12 @@ const Login = () => {
                                     </label>
                                     <input type="text" placeholder="Enter your email" {...register("email")} className="input input-bordered w-80" required />
                                 </div>
-                                <div className="form-control">
+                                <div className="form-control relative">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" placeholder="Enter your password" {...register("password")} className="input input-bordered" required />
+                                    <input type={showpass ? 'text' : 'password'} placeholder="Enter your password" {...register("password")} className="input input-bordered" required />
+                                    <span className="btn absolute right-0 top-9" onClick={() => setshowpass(!showpass)}><img src={Eye} width={20} alt="" /></span>
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
