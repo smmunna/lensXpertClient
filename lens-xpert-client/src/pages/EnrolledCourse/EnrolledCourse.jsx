@@ -8,7 +8,11 @@ const EnrolledCourse = () => {
     const [itemId, setItemid] = useState([])
     const { user } = useContext(AuthContext)
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_SERVER_API}/userpaymenthistory?email=${user?.email}`)
+        axios.get(`${import.meta.env.VITE_SERVER_API}/userpaymenthistory?email=${user?.email}`,{
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access-token')}`
+            }
+        })
             .then(res => {
                 setUserpayment(res.data)
             })

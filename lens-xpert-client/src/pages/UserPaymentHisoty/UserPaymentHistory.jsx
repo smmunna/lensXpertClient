@@ -8,7 +8,11 @@ const UserPaymentHistory = () => {
     const [userpayment, setUserpayment] = useState([])
     const { user } = useContext(AuthContext)
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_SERVER_API}/userpaymenthistory?email=${user?.email}`)
+        axios.get(`${import.meta.env.VITE_SERVER_API}/userpaymenthistory?email=${user?.email}`, {
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access-token')}`
+            }
+        })
             .then(res => {
                 setUserpayment(res.data)
             })
@@ -18,9 +22,9 @@ const UserPaymentHistory = () => {
     }, [])
     return (
         <div className='px-12 md:px-24'>
-        <Helmet>
-            <title>User Payments | LensXpert</title>
-        </Helmet>
+            <Helmet>
+                <title>User Payments | LensXpert</title>
+            </Helmet>
             <h3 className='py-3 text-center text-2xl font-bold'>Payment Status</h3>
             <hr />
             <div className=" grid grid-cols-1 md:grid-cols-2 gap-3">
