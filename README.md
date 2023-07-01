@@ -1,5 +1,13 @@
 ## LensXpert 
   > The project is about online photography course enrollment system. Here user can choose their favorite photography course and can enroll that course. Before that user need to login with their email and password, if don't have account then they can creat their account or they can sign in with google. There are some roles like admin, user, teacher. Teacher can provide the course and enroll their favorite course and they need to pay for their course usign *strie* account. Admin can see complete the payment status and approve the class. Teacher can view the class whether that is approve or pending. If the avaiable seat is becomes 0 then no one can enroll the course.
+
+## Authentication
+1. Admin-
+email: munna@gmail.com
+pass: 123456
+2. Instructor-
+email: davidwilson@example.com
+pass: 123456
   
 ### Home Section
    1. Contains Navbar
