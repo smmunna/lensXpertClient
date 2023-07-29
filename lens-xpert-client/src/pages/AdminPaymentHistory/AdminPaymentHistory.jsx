@@ -16,7 +16,7 @@ const AdminPaymentHistory = () => {
     const handlePaymentPending = (id) => {
         axios.post(`${import.meta.env.VITE_SERVER_API}/paymenthistory/${id}`)
             .then(res => {
-                if (res.statusText == 'OK') {
+                if (res.status == 200) {
                     refetch()
                     Swal.fire({
                         position: 'center',
@@ -37,7 +37,8 @@ const AdminPaymentHistory = () => {
     const handleAcceptClass = (id) => {
         axios.patch(`${import.meta.env.VITE_SERVER_API}/updatestudentsnumber/${id}`)
             .then(res => {
-                if (res.statusText == 'OK') {
+                if (res.status == 200) {
+                    refetch()
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
